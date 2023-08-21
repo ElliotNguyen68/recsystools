@@ -1,6 +1,10 @@
 name: starter
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+      - 'releases/**'
 
 jobs:
   test:
