@@ -5,3 +5,5 @@ build:
 tests:
 	export PYTHONPATH=. && pytest test\
 
+format:
+	black .

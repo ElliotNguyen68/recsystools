@@ -14,7 +14,7 @@ def test_get_user_item_embedding_from_interaction_matrix_svd():
         items_embedding,
         svd,
     ) = latent_embedding.get_user_item_embedding_from_interaction_matrix_svd(
-        rand_interaction_matrix, n_components=5, n_iter=2,algorithm='arpack'
+        rand_interaction_matrix, n_components=5, n_iter=2, algorithm="arpack"
     )
 
     assert users_embedding.shape == (10, 5)
@@ -23,7 +23,6 @@ def test_get_user_item_embedding_from_interaction_matrix_svd():
     assert (
         users_embedding @ np.diag(svd.singular_values_) @ items_embedding.T
     ).shape == (10, 20)
-    
 
 
 def test_get_user_item_embedding_from_interaction_matrix_matrix_factorization():
@@ -43,8 +42,4 @@ def test_get_user_item_embedding_from_interaction_matrix_matrix_factorization():
     assert users_embedding.shape == (10, 5)
     assert items_embedding.shape == (20, 5)
 
-    assert (
-        users_embedding @ items_embedding.T
-    ).shape == (10, 20)
-    
-    
+    assert (users_embedding @ items_embedding.T).shape == (10, 20)
